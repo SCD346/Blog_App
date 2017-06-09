@@ -1,0 +1,38 @@
+//- html layout
+html
+  head
+    
+  
+  body
+    a(type="button", href="/") home <br>
+    a(type="button", href="/dashboard") dashboard <br>
+    a(type="button", href="/logout" style="float:right") logout <br>
+    nav(class="navbar navbar-light bg-faded")
+      form( action="/", method="post" )
+        //- link to register page
+        a.btn(href="./register") register <br>
+        //- login for users
+        span(id="error")
+        input( type="password", name="password", placeholder="your password", style="float:right")
+        input( type="text", name="username", placeholder="your username", style="float:right")
+        input( type="submit", style="float:right")
+    ul
+      p
+        li= post.title
+        li= post.body
+        li= post.userId
+        ul
+          each comment in post.comments
+            p
+              li= comment.body
+
+
+        form( method="post" )
+          input(type="hidden" name="postId" value= post.id)
+          textarea( type="text", name="body", rows="5", cols="80", placeholder="your message" )
+          input( type="submit" )
+
+
+
+    //- render your content here from each page
+    block content

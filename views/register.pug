@@ -1,0 +1,15 @@
+html
+  head
+    Blog app: register
+    
+  body
+    nav
+      a(type="button", href="/") home
+    p Register here:
+      form( action="/register", method="post" )
+        input( type="text", name="firstname", placeholder="John" )
+        input( type="text", name="lastname", placeholder="Doe" )
+        input( type="email", name="email", placeholder="john@doe.com" )
+        input( type="text", name="username", placeholder="Your username" )
+        input( type="password", name="password", placeholder="password" )
+        input( type="submit" )

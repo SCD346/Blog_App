@@ -1,0 +1,25 @@
+html
+  head
+    h4 Blog app: Homepage
+  
+
+  body
+    nav(class="navbar navbar-light bg-faded")
+      a(type="button", href="/logout") logout <br>
+      a(type="button", href="/") home <br>
+      a(type="button", href="/logout" style="float:right") logout <br>
+    h5 Your info here:
+    ul
+      p username: #{li= results.username}
+      p firstname: #{li= results.firstname}
+      p lastname: #{li= results.lastname}
+      p email: #{li= results.email}
+
+    h5 All your posts:
+      each post in posts
+        p
+          li= post.title
+          li= post.body
+          li= post.userId
+          li= post.id
+          a(href="/onepost/" + post.id) open post
