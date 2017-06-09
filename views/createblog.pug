@@ -1,0 +1,14 @@
+html
+  head
+    Blog app: create a post
+    
+  body
+    a(type="button", href="/dashboard") dashboard
+    a(type="button", href="/logout" style="float:right") logout
+    a(type="button", href="/") home
+    p create a post here:
+      form( action="/createblog", method="post" )
+        input( type="text", name="title", placeholder="title" )
+        textarea( type="text", name="body", rows="5", cols="80", placeholder="your message goes here" )
+        input( type="submit" )
+
