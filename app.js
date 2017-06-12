@@ -69,7 +69,7 @@ let users = db.define('users', {
 
 
 
-//create a table in de database posts. Posts belong to users
+//Will create a table in Postgresql db called "posts". Posts get ID's.
 let posts = db.define('posts', {
     title: sequelize.STRING,
     body: sequelize.TEXT
@@ -78,7 +78,7 @@ let posts = db.define('posts', {
 
 
 
-//create a table in de database comments. Comments belong to posts and users
+//Will create a table in Postgresql db called "comments". Comments are tied to posts.  Posts are tied to users.
 let comments = db.define('comments', {
     body: sequelize.STRING
 })

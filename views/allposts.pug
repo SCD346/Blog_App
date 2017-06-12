@@ -13,10 +13,11 @@ html
       ul
         each post in posts
           p
+            li= post.createdAt
             li= post.title
             li= post.body
-            li= post.userId
-            li= post.id
+            //- li= post.userId
+            //- li= post.id
             a(href="/onepost/" + post.id) open post
 
 
