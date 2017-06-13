@@ -151,6 +151,7 @@ app.post('/onepost/*', (req, res)=>{
       }
       comments.create(newComment)
       console.log("You left this comment: " + newComment)
+      res.redirect('/')
   } else {
       res.redirect('/')
       console.log("Logging in is required!")
