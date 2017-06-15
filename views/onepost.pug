@@ -4,13 +4,13 @@ html
     
   
   body
-    a(type="button", href="/") home <br>
-    a(type="button", href="/dashboard") dashboard <br>
-    a(type="button", href="/logout" style="float:right") logout <br>
+    a(type="button", href="/") Home <br>
+    a(type="button", href="/dashboard") Dashboard <br>
+    a(type="button", href="/logout" style="float:right") Logout <br>
     nav(class="navbar navbar-light bg-faded")
       form( action="/", method="post" )
         //- link to register page
-        a.btn(href="./register") register <br>
+        a.btn(href="./register") Register <br>
         //- login for users
         span(id="error")
         input( type="password", name="password", placeholder="your password", style="float:right")

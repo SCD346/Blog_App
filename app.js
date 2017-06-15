@@ -9,13 +9,17 @@ const app = express()
 
 // var pg = require('pg'); 
 
-//This is my DB connection.
+//LOCAL DB connection.
+// const db = new sequelize('blog_app', 'stephendoherty', 'null', {
+//     host: 'localhost',
+//     dialect: 'postgres'
+// })
+
+//HEROKU DB connection.
 const db = new sequelize('blog_app', 'stephendoherty', 'null', {
     host: 'localhost',
     dialect: 'postgres'
 })
-
-
 
 // set the public folder
 app.use(express.static('public'))
@@ -262,9 +266,6 @@ app.post('/createpost', (req, res) => {
 
 
 //Sever connection to port 3k WITH HEROKU connection.
-// const express = require('express')
-// const app = express()
-
 var port = process.env.PORT || 3000;
 
 // app.use(express.static('public'))
