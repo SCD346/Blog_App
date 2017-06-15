@@ -1,7 +1,3 @@
-
-//CHECK: do i need pg? 
-
-
 //required packages for the app//
 const express = require('express'),
     bodyParser = require('body-parser'),
@@ -19,24 +15,11 @@ const db = new sequelize('blog_app', 'stephendoherty', 'null', {
     dialect: 'postgres'
 })
 
-//ConnetionString to database:
-// var db = 'postgres://jon:mypassword@localhost/blog_app';
-// const db = new Sequelize('postgres://jon:mypassword@localhost/blog_app');
-
-//ConnetionString to db:
-// var connectionString = 'postgres://jon:mypassword@localhost/bulletin_board_app';
-// var connectionString = 'postgres://' + process.env.POSTGRES_USER + ':' + process.env.POSTGRES_PASSWORD + '@localhost/bulletin_board_app';
-
-//database parameters
-// const db = new sequelize('blog_app', 'stephendoherty', 'null', {
-//     host: 'localhost',
-//     dialect: 'postgres'
-// })
-
 
 
 // set the public folder
 app.use(express.static('public'))
+
 
 
 //Setting up sessions.
@@ -71,12 +54,10 @@ let posts = db.define('posts', {
 
 
 
-
 //Will create a table in Postgresql db called "comments". Comments are tied to posts.  Posts are tied to users.
 let comments = db.define('comments', {
     body: sequelize.STRING
 })
-
 
 
 
@@ -87,8 +68,6 @@ users.hasMany(posts) //users can make many posts
 users.hasMany(comments) //users can make many comments
 comments.belongsTo(users) //users make comments
 comments.belongsTo(posts) //comments are tied to posts
-
-
 
 
 
@@ -113,7 +92,6 @@ app.get('/logout', (req, res) =>{
 
 
 
-
 //Renders the pugfile allposts.pug on the root directory.
 app.get('/', (req, res) => {
     posts.findAll().then((posts) => {
@@ -122,6 +100,7 @@ app.get('/', (req, res) => {
         })
     })
 })
+
 
 
 //Unique id to show a post.
@@ -141,6 +120,7 @@ app.get('/onepost/:id', (req, res) => {
 })
 
 
+
 //Enables users to leave a comment on another users (or their own) post.
 app.post('/onepost/*', (req, res)=>{
   if (req.session.visited == true) {
@@ -157,6 +137,7 @@ app.post('/onepost/*', (req, res)=>{
       console.log("Logging in is required!")
   }
 })
+
 
 
 //Renders the register pug file.
@@ -212,7 +193,6 @@ app.get('/dashboard', (req, res) => {
 
 
 
-
 //POST route: Log in "checkpoint". Compares the info entered in the login.pug file to the info found in the blog_ app db table "users".
 app.post('/', (req, res) => {
     users.findOne({
@@ -235,7 +215,6 @@ app.post('/', (req, res) => {
 
 
 
-
 //Sends new user info received from the register.pug file to the blog_ app db table "users"
 app.post('/register', (req, res) => {
 
@@ -251,7 +230,6 @@ app.post('/register', (req, res) => {
     users.create(newUser)
     res.redirect('/')
 })
-
 
 
 
@@ -273,12 +251,6 @@ app.post('/createpost', (req, res) => {
     }
 })
 
-//Sever connection to port 3k.
-db.sync().then(() => {
-}).catch(console.log.bind(console))
-app.listen(3000, function() {
-})
-
 
 
 
@@ -287,5 +259,21 @@ app.listen(3000, function() {
 // }).catch(console.log.bind(console))
 // app.listen(3000, function() {
 // })
+
+
+//Sever connection to port 3k WITH HEROKU connection.
+// const express = require('express')
+// const app = express()
+
+var port = process.env.PORT || 3000;
+
+// app.use(express.static('public'))
+
+const listener = app.listen(port, () => {
+    console.log('server has started at ', listener.address().port)
+})
+
+
+
 
 

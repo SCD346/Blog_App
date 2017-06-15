@@ -1,13 +1,13 @@
 html
   head
-    Blog app: create a post  <br>
+    Blog Create a post here!  <br>
     
 
   body
     a(type="button", href="/dashboard") dashboard <br>
     a(type="button", href="/logout" style="float:right") logout <br>
     a(type="button", href="/") home <br>
-    p create a post here:
+    p Create a new post here!
       form( action="/createpost", method="post" )
         input( type="text", name="title", placeholder="title" )
         textarea( type="text", name="body", rows="5", cols="80", placeholder="your message" )

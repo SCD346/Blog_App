@@ -9,15 +9,13 @@ html
       a(type="button", href="/register" style="center") register <br>
       a(type="button", href="/logout" style="float:right") logout <br>
       a(type="button", href="/login" style="float:right") login <br>
-    h5 ALL POSTS
+    h5 Check out these great posts!
       ul
         each post in posts
           p
             li= post.createdAt
             li= post.title
             li= post.body
-            //- li= post.userId
-            //- li= post.id
             a(href="/onepost/" + post.id) open post
 
 
