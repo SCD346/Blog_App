@@ -10,18 +10,12 @@ const app = express()
 // var pg = require('pg'); 
 
 //This is my DB connection.
-// const db = new sequelize('blog_app', 'stephendoherty', 'null', {
-//     host: 'localhost',
-//     dialect: 'postgres'
-// })
-
-const db = new sequelize(process.env.DATABASE_URL, {
-    dialect: 'postgres',
-    protocol: 'postgres',
-    dialectOptions: {
-        ssl: true
-    }
+const db = new sequelize('blog_app', 'stephendoherty', 'null', {
+    host: 'localhost',
+    dialect: 'postgres'
 })
+
+
 
 // set the public folder
 app.use(express.static('public'))

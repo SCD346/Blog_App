@@ -5,14 +5,12 @@ html
   body
     nav
       form( action="/", method="post" )
-        //- link to register page
-        a.btn(href="./register") register
-        //- login for users
+        a.btn(href="./register") Register with out Blog!
         span(id="error")
-        input( type="password", name="password", placeholder="your password", style="float:right")
-        input( type="text", name="username", placeholder="your username", style="float:right")
+        input( type="password", name="password", placeholder="Password", style="float:right")
+        input( type="text", name="username", placeholder="Username", style="float:right")
         input( type="submit", style="float:right")
-    h3 Wrong password or username dummy. Try again please
+    h3 Incorrect password.
 
 
 

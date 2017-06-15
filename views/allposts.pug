@@ -1,15 +1,13 @@
 //- html layout
 html
-  head
- 
   body
     nav(class="navbar navbar-light bg-faded")
-      a(type="button", href="/dashboard") dashboard <br>
-      a(type="button", href="/createpost") new post <br>
-      a(type="button", href="/register" style="center") register <br>
-      a(type="button", href="/logout" style="float:right") logout <br>
-      a(type="button", href="/login" style="float:right") login <br>
-    h5 ALL POSTS
+      a(type="button", href="/dashboard") Dashboard <br>
+      a(type="button", href="/createpost") New post <br>
+      a(type="button", href="/register" style="center") Register <br>
+      a(type="button", href="/logout" style="float:right") Logout <br>
+      a(type="button", href="/login" style="float:right") Login <br>
+    h5 Check out some posts!
       ul
         each post in posts
           p
@@ -18,7 +16,7 @@ html
             li= post.body
             //- li= post.userId
             //- li= post.id
-            a(href="/onepost/" + post.id) open post
+            a(href="/onepost/" + post.id) Check out this post!
 
 
 

@@ -1,14 +1,12 @@
 html
   head
-    Blog app: create a post  <br>
-    
-
+    Blog Post in the Blog App  <br>
   body
-    a(type="button", href="/dashboard") dashboard <br>
-    a(type="button", href="/logout" style="float:right") logout <br>
-    a(type="button", href="/") home <br>
-    p create a post here:
-      form( action="/createpost", method="post" )
-        input( type="text", name="title", placeholder="title" )
-        textarea( type="text", name="body", rows="5", cols="80", placeholder="your message" )
+    a(type="button", href="/dashboard") Dashboard <br>
+    a(type="button", href="/logout" style="float:right") Logout <br>
+    a(type="button", href="/") Home <br>
+    p Create your post here!
+      form( action="/", method="post" )
+        input( type="text", name="title", placeholder="Post title" )
+        textarea( type="text", name="body", rows="5", cols="80", placeholder="Write your message here." )
         input( type="submit" )
